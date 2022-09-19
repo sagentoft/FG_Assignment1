@@ -7,24 +7,28 @@ public class CharacterController : MonoBehaviour
 {
     [SerializeField] private float speed = 2f;
     [SerializeField] private Rigidbody charBody;
+    [SerializeField] private int playerIndex;
     private bool hasJumped = false;
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetAxis("Horizontal") != 0)
+        if (TurnManager.GetInstance().IsItPlayerTurn(playerIndex))
         {
-            transform.Translate(transform.right * (speed * Time.deltaTime * Input.GetAxis("Horizontal")));
-        }
+            if (Input.GetAxis("Horizontal") != 0)
+            {
+                transform.Translate(transform.right * (speed * Time.deltaTime * Input.GetAxis("Horizontal")));
+            }
 
-        if (Input.GetAxis("Vertical") != 0)
-        {
-            transform.Translate(transform.forward * (speed * Time.deltaTime * Input.GetAxis("Vertical")));
-        }
+            if (Input.GetAxis("Vertical") != 0)
+            {
+                transform.Translate(transform.forward * (speed * Time.deltaTime * Input.GetAxis("Vertical")));
+            }
 
-        if (Input.GetKeyDown(KeyCode.Space) && charBody.velocity.y <= Mathf.Epsilon)
-        {
-            Jump();
+            if (Input.GetKeyDown(KeyCode.Space) && charBody.velocity.y <= Mathf.Epsilon)
+            {
+                Jump();
+            }
         }
     }
 
