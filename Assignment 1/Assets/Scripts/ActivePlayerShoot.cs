@@ -18,4 +18,5 @@ public class ActivePlayerShoot : MonoBehaviour
        ActivePlayer currentPlayer = manager.GetCurrentPlayer();
        currentPlayer.FireProjectile();
     }
+
 }

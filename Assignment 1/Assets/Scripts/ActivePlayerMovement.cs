@@ -32,7 +32,7 @@ public class ActivePlayerMovement : MonoBehaviour
         if (Input.GetAxis("Horizontal") != 0)
         {
             ActivePlayer currentPlayer = manager.GetCurrentPlayer();
-            currentPlayer.transform.Translate(currentPlayer.transform.right * moveSpeed * Time.deltaTime * Input.GetAxis("Horizontal"), Space.World);
+            currentPlayer.transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime * Input.GetAxis("Horizontal"), Space.World);
         }
 
         if (Input.GetAxis("Vertical") != 0)
@@ -49,9 +49,16 @@ public class ActivePlayerMovement : MonoBehaviour
             isGrounded = false;
         }
 
-        ReadRotationInput();
+        if (Input.GetMouseButtonDown(0))
+        {
+            ActivePlayer currentPlayer = manager.GetCurrentPlayer();
+            currentPlayer.GetComponent<PlayerWeapon>().ShootLaser();
+        }
+
+       // ReadRotationInput();
     }
 
+  /* 
     private void ReadRotationInput()
     {
         yaw += speedH * Input.GetAxis("Mouse X");
@@ -61,7 +68,7 @@ public class ActivePlayerMovement : MonoBehaviour
         characterCamera.transform.localEulerAngles = new Vector3(pitch, 0.0f, 0.0f);
         transform.eulerAngles = new Vector3(0.0f, yaw, 0.0f);
     }
-
+  */
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.layer == 3) // I made layer 3 "Floor", which I have assigned to all applicable surfaces

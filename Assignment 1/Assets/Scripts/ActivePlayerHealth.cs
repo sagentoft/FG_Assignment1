@@ -32,13 +32,8 @@ public class ActivePlayerHealth : MonoBehaviour
             transform.position = initialPosition;
             transform.eulerAngles = initialRotation;
 
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
