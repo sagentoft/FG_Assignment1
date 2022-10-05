@@ -250,6 +250,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1: {fileID: 946920533}
   player2: {fileID: 815152116}
+  cinemachineSwitcher: {fileID: 1273555531}
 --- !u!4 &285918238
 Transform:
   m_ObjectHideFlags: 0
@@ -827,7 +828,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.20281518, y: 0.00000003262752, z: -0.000000006757803, w: 0.97921705}
+  m_LocalRotation: {x: 0.20281518, y: 0.000000032627515, z: -0.0000000067578023, w: 0.97921705}
   m_LocalPosition: {x: 4.13, y: 2.547, z: -1.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -908,7 +909,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1147617131}
-  m_LocalRotation: {x: 0.20281518, y: 0.00000003262752, z: -0.000000006757803, w: 0.97921705}
+  m_LocalRotation: {x: 0.20281518, y: 0.000000032627515, z: -0.0000000067578023, w: 0.97921705}
   m_LocalPosition: {x: -4.3893213, y: 0.6253333, z: -7.0923243}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -986,23 +987,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b92859452235e64bad2b2b412e5a542, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  action:
-    m_Name: Action
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: a352c351-b1af-440d-a8c7-a62bbae935d7
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: e60b57a6-336e-4780-92d4-2ee1fe06ac88
-      m_Path: <Mouse>/leftButton
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Action
-      m_Flags: 0
-    m_Flags: 0
 --- !u!95 &1273555532
 Animator:
   serializedVersion: 4

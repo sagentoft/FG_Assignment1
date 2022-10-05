@@ -6,6 +6,7 @@ public class ActivePlayerManager : MonoBehaviour
 {
     [SerializeField] private ActivePlayer player1;
     [SerializeField] private ActivePlayer player2;
+    [SerializeField] private CinemachineSwitcher cinemachineSwitcher;
 
     private ActivePlayer currentPlayer;
     private void Start()
@@ -31,5 +32,6 @@ public class ActivePlayerManager : MonoBehaviour
         {
             currentPlayer = player1;
         }
+        cinemachineSwitcher.SwitchState();
     }
 }
