@@ -53,6 +53,7 @@ public class ActivePlayerMovement : MonoBehaviour
         {
             ActivePlayer currentPlayer = manager.GetCurrentPlayer();
             currentPlayer.GetComponent<PlayerWeapon>().ShootLaser();
+            manager.ChangeTurn();
         }
 
        // ReadRotationInput();

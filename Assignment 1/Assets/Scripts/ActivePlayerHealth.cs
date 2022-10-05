@@ -8,10 +8,15 @@ public class ActivePlayerHealth : MonoBehaviour
     [SerializeField] private float maxHealth;
     [SerializeField] private Image healthBar;
 
+
     private float currentHealth;
 
     private Vector3 initialPosition;
     private Vector3 initialRotation;
+
+    private MeshRenderer meshRenderer;
+    private Color originalColor;
+    private float flashTime = 0.2f;
 
     // Start is called before the first frame update
     void Start()
@@ -20,10 +25,13 @@ public class ActivePlayerHealth : MonoBehaviour
         initialPosition = transform.position;
         initialRotation = transform.eulerAngles;
         healthBar.fillAmount = 1f;
+        meshRenderer = GetComponent<MeshRenderer>();
+        originalColor = meshRenderer.material.color;
     }
 
     public void TakeDamage(float damage)
     {
+        StartCoroutine(DamageFlash());
         currentHealth -= damage;
         healthBar.fillAmount = currentHealth / maxHealth;
 
@@ -34,6 +42,13 @@ public class ActivePlayerHealth : MonoBehaviour
 
             gameObject.SetActive(false);
         }
+    }
+
+    private IEnumerator DamageFlash()
+    {
+        meshRenderer.material.color = Color.red;
+        yield return new WaitForSeconds(flashTime);
+        meshRenderer.material.color = originalColor;
     }
 
 }

@@ -278,14 +278,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2141815056}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: -0.33330858, z: -0, w: 0.9428178}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 625717265958613364}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -38.939, z: 0}
 --- !u!120 &2141815057
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -399,7 +399,6 @@ GameObject:
   - component: {fileID: 625717265958613361}
   - component: {fileID: 625717265958613360}
   - component: {fileID: 946920533}
-  - component: {fileID: 946920539}
   - component: {fileID: 946920549}
   - component: {fileID: 946920550}
   m_Layer: 6
@@ -504,7 +503,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!114 &946920533
 MonoBehaviour:
@@ -518,26 +517,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b6a1e325b0e2af4db9e205c98dea719, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &946920539
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 625717265958613358}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 689ac47257ff8be468e001dfb1816c30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  manager: {fileID: 0}
-  rotationSpeed: 0
-  moveSpeed: 5
-  characterCamera: {fileID: 0}
-  speedH: 2
-  speedV: 2
-  pitchClamp: 90
-  jumpHeight: 300
 --- !u!114 &946920549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -564,6 +543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75dbaba388a6cbc46aef025c153e97be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 5863901914936445858, guid: d6190d90e4ce56345a629cb36beca08a, type: 3}
   weaponDamage: 10
   weaponBarrel: {fileID: 625717266784407394}
   lineRenderer: {fileID: 2141815057}
@@ -591,7 +571,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 625717266784407393}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.792}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -8,13 +8,11 @@ public class Projectile : MonoBehaviour
     [SerializeField] private Rigidbody projectileBody;
     private bool isActive;
 
-    private void Start()
-    {
-        
-    }
     public void Initialize(Vector3 direction)
     {
         isActive = true;
+
+        projectileBody.AddForce(direction);
     }
 
     // Update is called once per frame
@@ -31,9 +29,10 @@ public class Projectile : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            
+            collision.collider.GetComponent<ActivePlayerHealth>().TakeDamage(10);
+            Debug.Log("Hit");
         }
-        Destroy(this);
+        Destroy(gameObject);
         
     }
 }
