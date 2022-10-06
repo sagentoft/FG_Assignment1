@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class ActivePlayerHealth : MonoBehaviour
 {
@@ -40,7 +42,8 @@ public class ActivePlayerHealth : MonoBehaviour
             transform.position = initialPosition;
             transform.eulerAngles = initialRotation;
 
-            gameObject.SetActive(false);
+            StartCoroutine(ReloadLevel());
+            gameObject.GetComponent<MeshRenderer>().enabled = false;
         }
     }
 
@@ -49,6 +52,12 @@ public class ActivePlayerHealth : MonoBehaviour
         meshRenderer.material.color = Color.red;
         yield return new WaitForSeconds(flashTime);
         meshRenderer.material.color = originalColor;
+    }
+
+    private IEnumerator ReloadLevel()
+    {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("SampleScene");
     }
 
 }

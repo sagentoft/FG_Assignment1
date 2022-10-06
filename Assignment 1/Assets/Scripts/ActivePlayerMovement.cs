@@ -43,10 +43,8 @@ public class ActivePlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            ActivePlayer currentPlayer = manager.GetCurrentPlayer();
-            playerBody = currentPlayer.GetComponent<Rigidbody>();
-            playerBody.AddForce(transform.up * jumpHeight);
-            isGrounded = false;
+
+            StartCoroutine(JumpCoroutine());
         }
 
         if (Input.GetMouseButtonDown(0))
@@ -56,25 +54,31 @@ public class ActivePlayerMovement : MonoBehaviour
             manager.ChangeTurn();
         }
 
-       // ReadRotationInput();
     }
-
-  /* 
-    private void ReadRotationInput()
+  
+    private IEnumerator JumpCoroutine()
     {
-        yaw += speedH * Input.GetAxis("Mouse X");
-        pitch -= speedV * Input.GetAxis("Mouse Y");
-        pitch = Mathf.Clamp(pitch, -pitchClamp, pitchClamp);
+        ActivePlayer currentPlayer = manager.GetCurrentPlayer();
+        playerBody = currentPlayer.GetComponent<Rigidbody>();
+        playerBody.AddForce(transform.up * jumpHeight);
+        isGrounded = false;
+        yield return new WaitForSeconds(1.2f);
+        isGrounded = true;
 
-        characterCamera.transform.localEulerAngles = new Vector3(pitch, 0.0f, 0.0f);
-        transform.eulerAngles = new Vector3(0.0f, yaw, 0.0f);
     }
-  */
+    
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.layer == 3) // I made layer 3 "Floor", which I have assigned to all applicable surfaces
+        if (collision.gameObject.tag == "Floor") // I made layer 3 "Floor", which I have assigned to all applicable surfaces
         {
             isGrounded = true;
         }
+    }
+
+    private bool IsGrounded()
+    {
+        RaycastHit hit;
+        bool result = Physics.SphereCast(transform.position, 0.15f, -transform.up, out hit, 1f);
+        return result;
     }
 }

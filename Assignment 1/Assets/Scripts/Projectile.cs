@@ -30,7 +30,6 @@ public class Projectile : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             collision.collider.GetComponent<ActivePlayerHealth>().TakeDamage(10);
-            Debug.Log("Hit");
         }
         Destroy(gameObject);
         
