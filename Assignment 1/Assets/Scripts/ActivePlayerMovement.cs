@@ -56,6 +56,9 @@ public class ActivePlayerMovement : MonoBehaviour
 
     }
   
+    /* I am aware that this is a bad way of implementing jumping. For some reason, however, the collision check that I used before
+     I changed the level design doesn't work anymore. It just does not want to collide. So I, unfortunately, saw no other way 
+    than to make this abomination */
     private IEnumerator JumpCoroutine()
     {
         ActivePlayer currentPlayer = manager.GetCurrentPlayer();
@@ -69,7 +72,7 @@ public class ActivePlayerMovement : MonoBehaviour
     
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Floor") // I made layer 3 "Floor", which I have assigned to all applicable surfaces
+        if (collision.gameObject.tag == "Floor")
         {
             isGrounded = true;
         }
