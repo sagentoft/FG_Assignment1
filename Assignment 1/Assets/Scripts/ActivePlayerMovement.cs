@@ -84,4 +84,9 @@ public class ActivePlayerMovement : MonoBehaviour
         bool result = Physics.SphereCast(transform.position, 0.15f, -transform.up, out hit, 1f);
         return result;
     }
+
+    private void GoodShit()
+    {
+
+    }
 }
